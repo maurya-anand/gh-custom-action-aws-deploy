@@ -1,0 +1,19 @@
+name: "Deploy to AWS S3"
+description: "Deploy a static website to S3"
+inputs:
+  bucket:
+    description: "The S3 bucket name"
+    required: true
+  bucket-region:
+    description: "The S3 bucket region"
+    required: true
+    default: "us-east-1"
+  website-content-dir:
+    description: "The folder containing the deployable site"
+    required: true
+outputs:
+  website-url:
+    description: "The URL of the deployed site"
+runs:
+  using: "docker"
+  image: "Dockerfile"
